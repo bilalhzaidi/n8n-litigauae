@@ -1,9 +1,10 @@
-FROM node:18-alpine
+FROM node:18-bullseye-slim
 
-# Install n8n globally
-RUN npm install -g n8n
+# Install n8n at a specific stable version
+RUN npm install -g n8n@1.70.3
 
 # Set environment variables
+ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=https
 ENV GENERIC_TIMEZONE="Asia/Dubai"
